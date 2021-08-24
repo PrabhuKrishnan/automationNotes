@@ -1,0 +1,337 @@
+
+
+--------------------Class
+The class is one of the Basic concepts of OOPs which is a group of similar entities. 
+It is only a logical component and not the physical entity. 
+Lets understand this one of the OOPs Concepts with example, if you had a class called “Expensive Cars” it could have objects like Mercedes, BMW, Toyota, etc. 
+Its properties(data) can be price or speed of these cars. 
+While the methods may be performed with these cars are driving, reverse, braking etc.
+
+In simple terms, class is collection of variables & methods.
+eg: Class ClassName{
+Variabled
+Methods
+}
+
+------------------- Object
+An object can be defined as an instance of a class, and there can be multiple instances of a class in a program. 
+An Object is one of the Java OOPs concepts which contains both the data and the function, which operates on the data. 
+
+In Simple terms, Objects is an instance of class which are physical entities available in class.
+To create an object of Employee Class,
+Employee emp1 = new Employee();
+
+where, Employee is class name. emp1 is reference variable of object and Employee() is the instantiation. 
+Without Instantiation, the memory will not be allocated for the object.
+
+Objects are mainly used to access the variables & methods in a class.
+
+We can create multiple objects inside the class like, Employee emp2 = new Employee();
+
+------------------- Methods
+In Simple terms, method is a piece of code designed to do certain task and it is part of a Class.
+
+A method is a block of code which only runs when it is called. 
+You can pass data, known as parameters, into a method. 
+Methods are used to perform certain actions, and they are also known as functions.
+A method must be declared within a class. 
+It is defined with the name of the method, followed by parentheses (). 
+Java provides some pre-defined methods, such as System.out.println(),
+
+------------------- Method Parameters & arguments
+
+Information can be passed to methods as parameter. Parameters act as variables inside the method.
+
+Parameters are specified after the method name, inside the parentheses. You can add as many parameters as you want, just separate them with a comma.
+
+When a parameter is passed to the method, it is called an argument
+
+Note that when you are working with multiple parameters, the method call must have the same number of arguments as there are parameters, and the arguments must be passed in the same order.
+
+------------------ Return Values 
+
+The void keyword, used in the examples above, indicates that the method should not return a value. 
+If you want the method to return a value, you can use a primitive data type (such as int, char, etc.) instead of void, and use the return keyword inside the method
+
+To call a method in Java, write the method's name followed by two parentheses () and a semicolon;
+
+
+------------------ Scope
+
+Jave Scope - In Java, variables are only accessible inside the region they are created. This is called scope.
+Method Scope - Variables declared directly inside a method are available anywhere in the method following the line of code in which they were declared
+Block Scope - A block of code refers to all of the code between curly braces {}. 
+Variables declared inside blocks of code are only accessible by the code between the curly braces, which follows the line in which the variable was declared
+A block of code may exist on its own or it can belong to an if, while or for statement. 
+In the case of for statements, variables declared in the statement itself are also available inside the block's scope.
+
+
+-------------------- How many ways we can initialize the values to class variables
+using objects
+using constructor - we can directly pass the values from the constructor object to the class variables through constructor having variables equals class variables
+using methods - we can instantiate an object & using setdata method we can assign values to class variables.
+
+-------------------- Types of methods
+method can have parameters
+method may not have parameters
+method can have return some values
+method may not return values
+
+-------------------- Method Overloading
+Class contains more than one methods is called Method Overloading
+With method overloading, multiple methods can have the same name with different parameters
+Instead of defining two methods that should do the same thing, it is better to overload one.
+
+Rules - Multiple methods can have the same name as long as the number and/or type of parameters are different.
+Number of paramters
+Order of parameters
+Data type of parameters
+
+Any one of the above rule should be there in using Method Overlaoding
+
+
+---------------------- JAVA Recursion
+
+Recursion is the technique of making a function call itself. 
+This technique provides a way to break complicated problems down into simple problems which are easier to solve.
+Adding two numbers together is easy to do, but adding a range of numbers is more complicated. 
+In the following example, recursion is used to add a range of numbers together by breaking it down into the simple task of adding two numbers
+
+Use recursion to add all of the numbers up to 10.
+public class Main {
+  public static void main(String[] args) {
+    int result = sum(10);
+    System.out.println(result);
+  }
+  public static int sum(int k) {
+    if (k > 0) {
+      return k + sum(k - 1);
+    } else {
+      return 0;
+    }
+  }
+}
+
+When the sum() function is called, it adds parameter k to the sum of all numbers smaller than k and returns the result. 
+When k becomes 0, the function just returns 0.
+Since the function does not call itself when k is 0, the program stops there and returns the result.
+
+Halting COndition
+
+Just as loops can run into the problem of infinite looping, recursive functions can run into the problem of infinite recursion. 
+Infinite recursion is when the function never stops calling itself. 
+Every recursive function should have a halting condition, which is the condition where the function stops calling itself. 
+In the previous example, the halting condition is when the parameter k becomes 0.
+
+Use recursion to add all of the numbers between 5 to 10.
+public class Main {
+  public static void main(String[] args) {
+    int result = sum(5, 10);
+    System.out.println(result);
+  }
+  public static int sum(int start, int end) {
+    if (end > start) {
+      return end + sum(start, end - 1);
+    } else {
+      return end;
+    }
+  }
+}
+
+------------------- Constructors
+A constructor in Java is a special method that is used to initialize objects. 
+The constructor is called when an object of a class is created.
+Note that the constructor name must match the class name, and it cannot have a return type (like void).
+Also note that the constructor is called when the object is created.
+Constructors can be invoked at the time of object creation. (we no need to call the constructor explicitly)
+
+All classes have constructors by default: if you do not create a class constructor yourself, Java creates one for you. 
+However, then you are not able to set initial values for object attributes. To set values, constructors are used.
+
+Constructors can also take parameters, which is used to initialize attributes.
+
+The following example adds an int y parameter to the constructor. Inside the constructor we set x to y (x=y). 
+When we call the constructor, we pass a parameter to the constructor (5), which will set the value of x to 5.
+
+It can have many parameters.
+
+Same like Method Overlaoding, constructor overloading also possible using the same rules
+
+
+------------------- Can we overload the main method - YES
+
+This is possible by changing the number of parameters.
+
+------------------- THIS Keyword
+
+The this keyword refers to the current object in a method or constructor.
+
+The most common use of the this keyword is to eliminate the confusion between class attributes and parameters with the same name (because a class attribute is shadowed by a method or constructor parameter). 
+If you omit the keyword in the example above, the output would be "0" instead of "5".
+
+this can also be used to:
+
+Invoke current class constructor
+Invoke current class method
+Return the current class object
+Pass an argument in the method call
+Pass an argument in the constructor call
+
+eg:
+
+public class Main { 
+  int x; 
+ 
+  // Constructor with a parameter
+  public Main(int x) { 
+    this.x = x; 
+  } 
+
+  // Call the constructor
+  public static void main(String[] args)  { 
+    Main myObj = new Main(5); 
+    System.out.println("Value of x = " + myObj.x);
+  } 
+} 
+
+this.x =x - means we are referring the external variable to assign the local variable used in the method
+
+
+
+------------------------ Inheritance
+
+In simple terms, it is acquiring the methods & variables from parent class to child class
+
+In Java, it is possible to inherit attributes and methods from one class to another. We group the "inheritance concept" into two categories:
+
+subclass (child) - the class that inherits from another class
+superclass (parent) - the class being inherited from
+To inherit from a class, use the extends keyword.
+
+In the example below, the Car class (subclass) inherits the attributes and methods from the Vehicle class (superclass)
+
+class Vehicle {
+  protected String brand = "Ford";
+  public void honk() {
+    System.out.println("Tuut, tuut!");
+  }
+}
+
+class Car extends Vehicle {
+  private String modelName = "Mustang";
+  public static void main(String[] args) {
+    Car myFastCar = new Car();
+    myFastCar.honk();
+    System.out.println(myFastCar.brand + " " + myFastCar.modelName);
+  }
+}
+
+Child Class inherits from Parent Class. Derived Class inherits from Base Class. Sub Class inherits from Super Class. these r the different names used
+
+---------------------------- Why And When To Use "Inheritance"?
+- It is useful for code reusability: reuse attributes and methods of an existing class when you create a new class.
+
+---------------------------- The final Keyword
+If you don't want other classes to inherit from a class, use the final keyword
+
+---------------------------- Types of Inheritance
+
+Single - In Single Inheritance one class extends another class (one class only).
+
+Multiple - In Multiple Inheritance, one class extending more than one class. Java does not support multiple inheritance.
+
+Multilevel - In Multilevel Inheritance, one class can inherit from a derived class. Hence, the derived class becomes the base class for the new class.
+
+Hierarchical - In Hierarchical Inheritance, one class is inherited by many sub classes.
+
+Hybrid - Hybrid inheritance is a combination of Single and Multiple inheritance. Like b & c inherits from a and pass it to d by d inheriting from b & call
+
+Note: Java doesn't support hybrid/Multiple inheritence
+
+
+----------------------------- Access Modifiers
+
+access modifier, meaning that it is used to set the access level for classes, attributes, methods and constructors.
+We divide modifiers into two groups:
+
+Access Modifiers - controls the access level
+Non-Access Modifiers - do not control access level, but provides other functionality
+
+private is accessed only within the class. Not can be accessed within the package & outside the package.
+default is accessed within the class & package but not outside the package.
+protected is accessed within the class, within the package & outside the package using inheritance concept.
+public is accessed within the class, within the pacakage & outside the package as well without inheritance concept also.
+
+-----------------------------What are the non-access modifiers?
+
+Some of the JAVA keywords are known as non access modifiers. eg: final, static, abstract, transient, synchronized & volatile.
+
+final	Attributes and methods cannot be overridden/modified
+static	Attributes and methods belongs to the class, rather than an object
+abstract	Can only be used in an abstract class, and can only be used on methods. The method does not have a body, for example abstract void run();. The body is provided by the subclass (inherited from). You will learn more about inheritance and abstraction in the Inheritance and Abstraction chapters
+transient	Attributes and methods are skipped when serializing the object containing them
+synchronized	Methods can only be accessed by one thread at a time
+volatile	The value of an attribute is not cached thread-locally, and is always read from the "main memory"
+
+
+Final - If you don't want the ability to override existing attribute values, declare attributes as final
+
+public class Main {
+  final int x = 10;
+  final double PI = 3.14;
+
+  public static void main(String[] args) {
+    Main myObj = new Main();
+    myObj.x = 50; // will generate an error
+    myObj.PI = 25; // will generate an error
+    System.out.println(myObj.x); 
+  }
+}
+
+static - A static method means that it can be accessed without creating an object of the class, unlike public
+
+public class Main {
+  // Static method
+  static void myStaticMethod() {
+    System.out.println("Static methods can be called without creating objects");
+  }
+
+  // Public method
+  public void myPublicMethod() {
+    System.out.println("Public methods must be called by creating objects");
+  }
+
+  // Main method
+  public static void main(String[] args) {
+    myStaticMethod(); // Call the static method
+
+    Main myObj = new Main(); // Create an object of MyClass
+    myObj.myPublicMethod(); // Call the public method
+  }
+}
+
+------------------ java exceptions
+
+When executing Java code, different errors can occur: coding errors made by the programmer, errors due to wrong input, or other unforeseeable things.
+
+When an error occurs, Java will normally stop and generate an error message. The technical term for this is: Java will throw an exception (throw an error).
+
+The try statement allows you to define a block of code to be tested for errors while it is being executed.
+
+The catch statement allows you to define a block of code to be executed, if an error occurs in the try block.
+
+The try and catch keywords come in pairs
+
+try {
+  //  Block of code to try
+}
+catch(Exception e) {
+  //  Block of code to handle errors
+}
+
+If an error occurs, we can use try...catch to catch the error and execute some code to handle it
+
+
+
+
+

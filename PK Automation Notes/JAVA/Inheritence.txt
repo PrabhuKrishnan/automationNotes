@@ -1,0 +1,8 @@
+Inheritence in java:
+
+-Inheritence allows classes to inherit commonly used state and behavour from other classes
+-Inheritence, deriving the properties(members, methods,nested calsses) of the superclass
+-With this we can resue the fields and methods of the existing class
+-constructor are not members,so they are not inherited by subcalsses
+-But the constructor of the superclass can be invoked  from the superclass
+-with Inheritence we can acheive the Reuseability in java 

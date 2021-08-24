@@ -1,0 +1,74 @@
+
+-Maven is ab build tool and it have the pom.xml file 
+-Maven have the project structure by default
+-pom.xml --> which will have the dependicy(jar) and plugis 
+-Maven is also used to upgrade the project easily 
+-With maven we can prepare reports and documentation
+-And also very easy for packing 
+-POM --> Project Object Model
+
+How maven project works internally:
+
+POM.xml consistion  of 
+  - dependencis -->third pary library 
+  - plugins --> configuration 
+    <plugin> </plugin>  --> this tag used to add the plugin to complie the project 
+
+- By default, when creating the maven project, it will create the maven local repository  
+- maven download all the third pary library from the remote maven repository
+
+- Maven Archetype -->  This is provide the project template basesd on the technology like(java,selenium)
+
+=================================================================================================================
+Maven Folder Structure:
+
+-src/main/java       --> development source code
+-src/main/resources  --> Resources for development
+
+-src/test/java       --> it will have the test file 
+-src/test/resources  --> Resources for the testing 
+
+=================================================================================================================
+Maven Build Life Cycle:
+-validate
+-Complie
+-Test
+-Package
+-Integration Test
+-Verify 
+-Install --> Install in local repository
+-Deploy  --> Install in remote repository to use by other project
+
+-Maven reports will be available in "target/surefire-reports/index.html"
+-We can execute the test using the pom.xml with the help of maven 
+
+====================================================================================================================
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,287 @@
+Strings: -  are a sequence of characters.
+
+String --> to create and manipulate the strings 
+
+Creating Strings:
+-----------------
+String str = "hello java"
+ where,
+   -"hello java" - is string literal, a series of characters in your code that is enclosed in double quotes
+   - Whenever it encounters a string literal in your code, 
+     the compiler creates a String object with its value—in this case, "hello java"!
+   - we can create also create a string object usein new keyword and also a constructor
+   - The String class 13 constructors that allowa to provide initial value of the string using different resources 
+     such as array of characters
+
+ Example:
+    char[] helloArray= {'h','e','l','l','o'};
+	String helloString = new String(helloArray);
+	syout(helloString);
+	 
+	-The String class is immutable, so that once it is created a String object cannot be changed.
+
+
+String Methods
+--------------
+- length() - returns the number of characters contained in the string object
+
+ Example:
+ 
+    String palindrome = "Dot saw I was Tod";
+    int len = palindrome.length();
+
+Concatenating Strings:
+----------------------
+  
+   string1.concat(string2); 
+   "My name is ".concat("Rumplestiltskin");
+
+   Strings are more commonly concatenated with the + operator, as in
+
+   "Hello," + " world" + "!"   -->"Hello, world!"
+
+   For each object that is not a String, its toString() method is called to convert it to a String.
+  
+
+Converting Strings to Numbers:
+--------------------------------
+-Frequently, a program ends up with numeric data in a string object—a value entered by the user, for example.
+-The Number subclasses that wrap primitive numeric types 
+   --Byte
+   --short
+   --Interger
+   --Long
+   --Float
+   --Double
+-Each provide a class method named valueOf, that convers a string to an object of that type 
+-string also provides method (for example, parseFloat()) that can be used to convert strings to primitive numbers
+-Since a primitive type is returned instead of an object, the parseFloat() method is more direct than the valueOf() method   
+
+Converting Numbers to Strings:
+------------------------------
+
+-Sometimes you need to convert a number to a string because you need to operate on the value in its string form
+-There are several easy ways to convert a number to a string 
+
+   Example:
+   --------
+    int i;
+    // Concatenate "i" with an empty string; conversion is handled for you.
+    String s1 = "" + i;
+
+-Or
+ 
+    // The valueOf class method.
+    String s2 = String.valueOf(i); 
+	
+Each of the Number subclasses includes a class method, toString(), that will convert its primitive type to a string. For example:
+
+  Example:
+  --------
+    int i;
+    double d;
+    String s3 = Integer.toString(i); 
+    String s4 = Double.toString(d); 
+	
+Manipulating Characters in a String:
+====================================
+
+--Getting Characters and Substrings by Index:
+---------------------------------------------
+ 
+chartAt()
+ - to get the character at a particular index 
+ - the index of the first character is 0
+ - the index of the last character is lenght()-1
+ 
+
+-If you want more that one consecutive character from a string, use "substring" method 
+-The substring has method has tow versions, as below
+
+  String substring(int beginIndex, int endIndex)
+  String substring(in beginIndex)
+
+
+Other Methods for Manipulating Strings:
+----------------------------------------
+-several other String methods for manipulating strings
+
+  String[] split(String regex)
+  String[] split(String regex, int limit)
+  CharSequence subSequence(int beginIndex,int endIndex)
+  String trim() --> to remove the leading and trailing white space from the give string 
+  String toLowerCase()
+  String toUpperCase()
+  
+Searching for Characters and Substrings in a String:
+-----------------------------------------------------
+-The below two methods are used to find the specific character or substring for a give string 
+   
+   indexOf() --> search forward from the beginning of the string
+   lastIndexOf() --> search backward from the end of the string 
+
+-If a character or substring is not found, index() and lastIndexOf() will return -1
+
+-The string class also provides a search method, contains()--> this will return true if the string contains a 
+  particular character sequence
+  
+-use the contains() method when you only need to know that the string contains a character sequence,but the 
+ precise location isn't important   
+	
+The below are the various string search methods
+------------------------------------------------
+ --int indexOf(int ch)     --> this will return the index of the specified character   
+ --int lastIndexOf(int ch) 
+ 
+   Example:
+   --------
+      String s = "welcome";
+	  s.indexOf('l') -->  return 2 as index 
+   
+	
+ --int indexOf(int ch, int fromIndex)
+ --int lastIndexOf(int ch, int fromIndex)
+	
+	Example:
+	   Stirng s ='wildlife'
+	   s.indexOf('w',int 0);
+
+ --int indexOf(String str) --> retunr the last and first index of the given substring 
+ --int lastIndexOf(String str)
+	
+ --int indexof(String str, int fromIndex) --> returs the occurrenc of the specified substring
+ --int lastIndexOf(String str, int fromIndex)
+ 
+ --boolean contains (CharSequence s) --> return true if the string contains the specified character sequence
+	
+=========================================================================================================================
+
+String Builder Class: --> Not thread safe 
+-------------------------
+-we can modifyt the string using the sting builder class
+
+
+StringBuilder sb = new StringBuilder();   // creates empty builder, capacity 16
+sb.append("Greetings");  // adds 9 character string at beginning
+
+
+String Bufffer Class - synchronized i.e Thread safe
+
+- two threads can't call the methods of StringBuffer simultaneously
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 
+
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

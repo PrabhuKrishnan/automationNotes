@@ -1,0 +1,34 @@
+Method Overloading in Selenium:
+ -- driver.mamage.timeouts.implicitlywait(30,Timeouts.SECONDS)
+ -- here we are usign differnt parametes in timeouts like SECODNS,Minutes 
+
+
+In case if wato create own method we can use the below as 
+
+wait(), 
+wait(Time units) ,
+select(), 
+select(dropdown1), 
+select(dropdown1,dropdown2)
+
+Example:
+ public void select(int i) {
+    this.list.selectByIndex(i);
+  }
+  
+  
+  public void select(String text) {
+    this.list.selectByVisibleText(text);
+  }
+  
+  public void select(String text) {
+    this.list.selectByVisibleText(text);
+  }
+  
+  public void deSelect(String text) {
+    this.list.deselectByVisibleText(text);
+  }
+ 
+ 
+ 
+ 

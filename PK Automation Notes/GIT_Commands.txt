@@ -1,0 +1,182 @@
+GIT:
+
+GIT Flow: 
+working dir --> staging --> local repo --> Rempote Rep
+
+1.git init
+2.git add --all --> to add the files  in stagging
+
+3.Here we need to configure before our first commit using the below command 
+
+   git config --global user.eamil "user email id"
+   git config --global user.name "user name"
+   
+4.git commit -m "this is my first commit"
+
+5. git log --> To check commit history 
+
+   git log --oneline  --graph --> this show the branch info wit graph view 
+   git log --oneline branch   --> this will show the no.of commits in the particular branch
+
+6.when updatting the file, use the below cmd
+
+   git commit -a -m "commit message"  -->this add the updaed file and commit 
+   
+=============================================================================================================
+ 
+Git diff   - used to compare the files in GIT
+
+7. git diff filename.txt 
+
+comparing the files in the working dir with the last commit in the Remote Dir using the git diff command 
+
+Last commit referred using the HEAD 
+
+  git diff HEAD GitDemo.java
+  git diff --staged HEAD filename --> to check the staged file contents with the Remote Repo
+  
+  compare the working dir with the first commint in the Local Repo - to do that we need to know the commint id 
+  then use the below below cmd to compare
+  
+  git diff commint id filename
+  git diff d69d0ea GitDemo.java 
+  
+===================================================================================================
+
+  Remove the files from both staging and working directory -->  git rm filename  
+
+  git ls-files --> this will show the files in stagging
+  
+  git rm -r .--> Remove all the file in the working dir and staging 
+  
+  git --rm cached filename  --> to delete files in the staging area 
+  
+======================================================================================================================
+
+Git checkout command
+
+git checkout --filename --> To discard the unstaged changes in the tracked files of working direcotry 
+
+Git rest command   
+
+   git reset filename           -->To remove the changes from staging area
+   git rest <mode> <commit id>  --> To undo commits at repository level 
+   
+   Where modes are  ---> mixed,soft,hard 
+   
+   --mixed--> default mode, to discard the commits in the local repository and also in staging area
+   
+	   syntax: git reset --mixed commit_id	
+	   
+   --soft--> same as mixed option, but the changes are available in working directory as well as staging
+   
+       syntax: git reset --soft commit_id		
+		
+   --hard -->same as mixed option except that the changes will be removed from everywhere(local repo,staging,working dir)
+             It is impossible to revert back and hence whille using the hard rest we have to take special care  
+			 
+	   syntax: git reset --hard commit_id	    
+====================================================================================================================
+GIT Branching:
+git branch - To view the available branch 
+git status 
+git branch branch_name --> to create a new branch
+git checkout --> to switch from one branch to another branch 
+
+creating and switching to branch:
+git checkout -b branch_name --> this will create the new branch and switch to it 
+
+====================================================================================================
+Git Merging 
+
+Fast Forward Merge --> In this approach, the development is only with the child branch not on the master 
+
+To merge the child branch with master, need to switch to master and execute the below command 
+ 
+    git merge branch_name
+	git branch -d branch_name --> to delete the branch 
+	
+=======================================================================================================
+Git Rebase branch_name --> this should be executed in the maseter branch 
+- used to rebase the feature branch with the master 
+- Rebase should be used only in the local repository
+
+====================================================================================================
+Github - Remote Reprosistry  --> clone, Push and Pull from Remote Reprosistry
+
+git remote add remoteReproName url  ---> to set the orgin 
+git remote -v --> To view the origin is set or not
+git remote show origin --> this will display the origin information
+
+
+
+git push origin branch_name
+git push --all origin  --> Push all branches to your remote repository
+git push origin --delete branchname   -->Delete a branch on your remote repository
+
+git pull origin master 
+
+
+  
+	
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+	
+	
+  
+  
+  
+  
+
+
+

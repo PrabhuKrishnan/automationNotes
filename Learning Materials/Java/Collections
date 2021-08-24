@@ -1,0 +1,387 @@
+
+
+
+Java Collections:
+
+ ---- Collection is group of objects.
+ ---- To create a collection, we need a class or interfaces where we can have a group of objects
+ 
+Why Array is different from collections -
+
+-We can use elements of same datatype.
+-They don't have any frameworks so we can't use any datatypes.
+-This can be partially achieved by using Object a[] = news Object [7] to store the elements but it is not achieved fully.
+-But using above Object also, we can't use additional elements during runtime. It is like fixed.
+ 
+ 
+But Using Collections or Collection Frameworks,
+
+1) It is growable where we can have/store any number of elements. 
+2) We can use any datatypes for the elements stored.
+3) There are underlying ready-made datatypes to perform any actions on the elements like sort
+
+
+Collection & Collections
+
+--Collection -->  is the interface where we can have group of objects which uses 
+                 the collections class methods to perform some actions.
+
+--Collections --> is the class present in java.util packages where it has methods like sort 
+                  which can be used by the collection objects.
+
+
+Collection Interface:
+=====================
+  --List
+  --Set 
+  --Queue
+
+Under List Interface, we have below class and it implemented by List Interface
+
+  --Arraylist --->(duplicate values allowed, Insertion Order preserved)
+  --LinkedList  
+
+Arraylist: -- Defaule size --> 10
+------------
+--In ArrayList if default size is reached, then it will create the new object 
+  and copy all the values in the new object with the new space
+  
+--ArrayList class is available in java.util package
+
+--As like List Interface, whenever we want to use duplicate values in the 
+  collections and insertion order to be preserved, we can go for Arraylist
+ 
+--To initialize arrayList - " ArrayList al =new ArrayList() "
+
+--By default, it will allocate the size as 10 for the elements/objects.
+
+--To initialize only specific datatypes, we can go for wrapper class type in arraylist 
+
+   Example:- ArrayList<string> al = new <string>(); - This will allow only the elements to be string datatypes
+
+--The ArrayList class is a resizable array, which can be found in the java.util package.
+
+--The difference between a built-in array and an ArrayList in Java, is that the size of an array 
+ cannot be modified (if you want to add or remove elements to/from an array, you have to create a new one). 
+ 
+--While elements can be added and removed from an ArrayList whenever you want.  
+
+--Array indexes start with 0: [0] is the first element. [1] is the second element, etc.
+
+ArrayList Methods:
+--------------------
+1) add(obj) - to add the elements in the arraylist. This will add the element in the order. 
+              eg: if we add an element to an colloection having 4 elements, it will add from 5
+   
+2) add(index, object) - to add the elements in specific index. 
+                        eg: add(2, 100) - it will add the value 100 in the index 2
+   
+3) size() - To find out how many elements an ArrayList have, use the size method
+
+4) get() - To access an element in the ArrayList, use the get() method and refer to the index number
+
+5) set(index, obj) - To modify an element, use the set() method and refer to the index number
+
+6) remove(index) - To remove an element, use the remove() method and refer to the index number
+
+7) clear() - To remove all the elements in the ArrayList, use the clear() method
+
+8) contains(obj) - this will check whether the object is present or not in boolean values true or false. 
+                   this is like search
+				   
+9) isempty() - this will check whether the collections have elements or not in boolean values true or false
+
+10) addAll() - this used to add elements from collection to another (mainly to all multiple elements)
+
+11) removeAll() - this will remove all the elements from the collection
+
+
+12) Collection Methods:
+------------------------
+--Sort in Arraylist - Another useful class in the java.util package is the Collections class, 
+                    which include the sort() method for sorting lists alphabetically or numerically
+					
+--Collections.sort(); - this will sort in ascending order
+
+--Collections.sort(a, Collections.reverOrder()); - to sort in descending or reverse order.
+
+--Shuffle - Collections.shuffle(a);
+
+--To convert array into arraylist - this can be done using Arrays class. Arrays.asList
+
+		eg: string arr[] = {"dog", "cat"};
+		    ArrayList al = new ArrayList(Arrays.asList(arr));
+
+
+13) To read the elements from collections arraylist, we use below three methods,
+----- Using for loop
+
+import java.util.ArrayList;
+
+public class Main { 
+  public static void main(String[] args) { 
+    ArrayList<String> cars = new ArrayList<String>();
+    cars.add("Volvo");
+    cars.add("BMW");
+    cars.add("Ford");
+    cars.add("Mazda");
+    for (int i = 0; i < cars.size(); i++) {
+      System.out.println(cars.get(i));
+    }
+  } 
+}
+
+----- Using for each loop
+
+import java.util.ArrayList;
+
+public class Main { 
+  public static void main(String[] args) { 
+    ArrayList<String> cars = new ArrayList<String>();
+    cars.add("Volvo");
+    cars.add("BMW");
+    cars.add("Ford");
+    cars.add("Mazda");
+    for (String i : cars) {
+      System.out.println(i);
+    }
+  } 
+}
+
+ Using iterator:
+ ---------------
+--In Arraylist, we have method called iterator which will automatically read all the elements in arraylist
+
+--An Iterator is an object that can be used to loop through collections, like ArrayList and HashSet. 
+  It is called an "iterator" because "iterating" is the technical term for looping.
+
+--To use an Iterator, you must import it from the java.util package.
+
+--The iterator() method can be used to get an Iterator for any collection
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Main {
+  public static void main(String[] args) {
+  
+    // Make a collection
+    ArrayList<String> cars = new ArrayList<String>();
+    cars.add("Volvo");
+    cars.add("BMW");
+    cars.add("Ford");
+    cars.add("Mazda");
+  
+    // Get the iterator
+    Iterator<String> it = cars.iterator();
+  
+    // Print the first item
+    System.out.println(it.next());
+  }
+}
+To loop through a collection, use the hasNext() and next() methods of the Iterator - hasNext() - used to run through 
+all elements (true for element is there & false for no element). Next() - used to print & move to next element
+
+Set Interface:
+================
+Set class is implemented  by below class 
+
+-HashSet
+-LinkedHashSet
+
+HashSet: -- No index access in HashCode, the data not stored in order 
+----------
+-having hashtable to store the data 
+-Duplicate elements not allowed
+-Insertation order is not preserved 
+-The element inserted using the HashCode
+-Because of the hashcode, the searching is fast
+-We can also use null in the hashset
+
+-If we are searching more elements then go for HashSet 
+
+How to create to HashSet:
+
+  HashSet sh = new HahsSet();
+  
+-initial size of HashSet is 16 --> default size , we can also increase the size 
+
+-Load factor/fill rate in the HashSet -->0.75 
+ 
+-In HashSet, once the memory is reached 75% (0.75-->load factor/fill ratio),then immediately the new 
+  hashset will be created, the old object is eligible for garbagge collection
+
+-we can also increas the default size of HashSet 
+
+   HashSet sh = new HahsSet(100);       --> initial size  of 100 
+   HashSet sh = new HahsSet(100,0.75);  --> initial size and the load factor
+   HashSet sh = new HahsSet(100,0.95);  --> we can also change the default load factor
+   
+-we can also store specific data in HahsSet
+
+     HashSet<Interger> sh = new HahsSet<Interger>();
+
+-HashSet class dosen't have any method, it have the methods that is implemented by the Set Interface
+
+Methods in HashSet:
+--------------------
+-add(value)
+-addAll(HashSetCollection obj)
+-remove(value)
+-removeAll(HashSetCollection obj)
+-contains(obj)
+-containsAll(obj)
+-isEmpty(obj)
+
+-sorting and shuffling is not possible, because of the element are  not stored in sequential order 
+-If we want to sort the HashSet then we need to conver the HahsSet to ArrayList and then use the 
+  Collections.sort() method to sort the list 
+
+LinkedHashSet:
+--------------
+-having hastable + linked list to store the data  ==> LinkedHashSet
+-LinkedHashSet has same methods as in HahsSet
+-Duplicate not allowed 
+-But insertion order is preserved
+
+
+Map Interface:  --> Independent Interface
+--------------
+Class that Implemented by Map Interface
+-HashMap Class
+-HashTable Class
+
+When to use Map -->if we want to store the data in key value pair then, we can use the map
+
+-Duplicate keys are not allowed
+-Duplicate value is allowed 
+- Combination key and value pair called as --> Entry 
+
+HashMap Class
+--------------
+-use hashmap when searching of element is more 
+-Same method in Map is implemented in HashMap
+-underlying data structure for HashMap is "HashTable"
+-Insertation order is not preserved
+-Duplicate keys is not allowed but duplicate value is allowed
+-only one null keys allowed 
+
+Methods available in HashMap:
+=============================
+Creation of HahsMap:
+ HashMap m  = new HashMap()
+
+-m.put(key,value)
+
+-m.putAll(mapObject) 
+
+-m.get(key) --> to get the value based on the key 
+
+-m.remove(key) --> to remove the value based on the key 
+
+-m.contains(key) --> it returns true/false if the key is found
+
+-m.containsValue(value) --> it returns true/false if the value is found
+
+-m.isEmpty() --> to check the map is empty or not 
+
+-m.size()
+
+-m.clear() --> to delete all the value in the HashMap 
+
+-m.keyset() --> it will return all the key in the HahsMap ---> Return type is Set object, 
+               in set duplicate values is allowed, that's why the return type is Set 
+
+-m.values() --> to get all the values from the HashMap -->in values the duplicate are allowed and return type is collection
+
+-m.entrySet() --> it will return all the entry in the HashMap in the form of key and value
+
+                 Example : 101 prabhu  -->Entry set
+				           102 vaira   -->Entry set
+  					       102 venkat  -->Entry set 
+						   
+Sub Interface for Map and implemented By HashMap class:
+========================================================
+-Entry Interface --> the methods from the entry interface can be used only for the entries in the HashMap
+
+	-getKey(mapObject) --> it will return the value for the given key 
+
+	-getValue(value) --> it will return the key  for the given key 
+
+	-setValue(mapObject) -- to update the new value 
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 

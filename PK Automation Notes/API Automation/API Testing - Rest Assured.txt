@@ -1,0 +1,61 @@
+Ref URL:
+https://www.youtube.com/watch?v=LUbBkiIhrE4&list=PLFGoYjJG_fqp891lruz5fCRPWsDtEXJky
+
+Part 1:
+========
+Topics:
+-what is
+ --> API
+ --> Web Serivces
+ --> REST API
+ --> SOAP Based API 
+ 
+Part 2:
+=======
+Introduction of Restful API Design - WebServices Automation - Part-2
+-what is Rest Client
+-Different HTTP Methods(GET/POST/PUT/DELETE)
+-what is postman 
+-what is URI and URL
+-what is Header
+-what is response
+-swagger Documentation
+
+
+Ouery Parameter --> used to filter the records
+Example: https://resreq/api/users/?page=2
+
+Path Parameter -->used to get the specific data using /
+Example: https://resreq/api/users/2
+
+
+Part 3:
+=======
+Rest Web Services Automation
+
+-Add Http client JSON Parser libs dependency
+-Automate GET APIs with headers 
+-Automate GET APIs without headers
+-How to parse json objects 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

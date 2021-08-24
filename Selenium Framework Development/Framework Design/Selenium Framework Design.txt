@@ -1,0 +1,30 @@
+Resuable Methods Example:
+https://qatechtools.com/2020/08/16/selenium-reusable-methods-in-java/
+
+
+Utility
+
+-properties file
+  -To read the test url and login data
+ 
+-TestBase
+	-Driver instiation (static)
+	-browser setup(parelle execution using testNG)
+	-Create WebEventListener object using the driver object
+	
+-WebEventListener Utility class
+-TestData Reading Utility class
+	
+	
+-Common Methods
+	- wait
+	- scroll
+	- JSE
+	- Screenshot
+	
+	
+
+	
+	
+	
+ 

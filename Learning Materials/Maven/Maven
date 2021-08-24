@@ -1,0 +1,39 @@
+
+
+------------- APACHE MAVEN
+
+
+https://www.seleniumeasy.com/maven-tutorials/what-is-maven
+https://www.youtube.com/watch?v=-25Q76lnB50&list=PLUDwpEzHYYLs86hEjzJGWmrHjONOQJWJY
+
+
+What is Maven ?
+
+-- Maven is build or project management tool which is mainly use to setup the project with proper project structure by including different third party dependencies and plugins.
+-- It mainly uses POM.xml by following the concept of Project Object Model. In POM.xml, we do have multiple tags to have all the dependencies, versions, plugins, source directory, test source directory, goals, etc
+-- Since, we have all the dependencies stored in POM.xml, this will by default include all the related JARs in our project. We don't have to include the JARS separately in our project, we can avoid missing out some JARs while adding to it, or we might not know which JARs to add when we add.
+-- It will be helpful for doing any upgrades by just changng the versions for any particular dependencies. Instead of removing and adding the JARs again.
+
+-- There is remote MAVEN repository which will have all the dependencies informations where one can use the dependencies tags and coppy/paste in their POM.xml
+-- When we create maven project, it will create one Maven local repository.
+-- To add dependencies, if we copy the dependencies and give it in POM.xml, it will get stored in Maven local repository.
+-- Any upgrade in versions, it will get updated in Maven local repository.
+
+MAVEN Project Structure -
+
+-- src/main/java
+-- src/main/resources 
+-- src/test/java
+-- src/test/resources
+-- JRE system library
+-- src
+	main
+	test
+-- target
+-- pom.xml
+
+main folders contains developer codes & its resources
+test folder contains tester codes & its resources
+JRE system library will have all the JARs of all dependency added
+src & target folder - at runtime, maven will use these folders to store some temporary files
+pom.xml is project object model used to control the maven project 

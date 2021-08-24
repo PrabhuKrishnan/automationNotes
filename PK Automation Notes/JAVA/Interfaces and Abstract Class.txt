@@ -1,0 +1,61 @@
+About Interface:
+
+Like abstract classes, interfaces cannot be used to create objects (in the example above, it is not possible to create an "Animal" object in the MyMainClass)
+Interface methods do not have a body - the body is provided by the "implement" class
+On implementation of an interface, you must override all of its methods
+Interface methods are by default abstract and public
+Interface attributes are by default public, static and final
+An interface cannot contain a constructor (as it cannot be used to create objects)
+The interface can be extended many number of classes 
+
+
+All abstract, default, and static methods in an interface are implicitly public, so you can omit the public modifier.
+
+
+Example:
+
+- Create one interface  with the below 
+   -- one filed 
+   --one instance method 
+   --one static method
+- And then create one class to implement
+
+
+Abstract Classes Compared to Interfaces:
+
+- Abstract classes are similar to interfaces
+- You cannot instantiate them
+- they may contain a mix of methods declared with or without an implementation
+- However, with abstract classes, you can declare fields that are not static and final, 
+   and define public, protected, and private concrete methods.
+- The abstract class can be extended to only one class 
+
+
+Which should you use, abstract classes or interfaces?
+
+1. Common functionality
+
+-If you want to provide some common or default functionality then the abstract class would be a better choice
+-Because an abstract class can have abstract methods and concrete methods
+-So concrete method can provide some default behavior to each subclass.
+-An abstract class is a good choice when there is a chance to add more new behavior.
+-Because you can still add behavior without breaking the existing code
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

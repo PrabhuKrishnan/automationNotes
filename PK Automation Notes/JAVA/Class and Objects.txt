@@ -1,0 +1,234 @@
+
+Constructor
+Access specifiers 
+this word
+static variable and satic method 
+
+constructors:
+
+-constructors for initializing new objects, declarations for the fields that provide the state of the class and its objects, 
+and methods to implement the behavior of the class and its objects
+
+Declaring Member Variables:
+=============================
+
+There are several kinds of variables:
+--------------------------------------
+
+-Member variables in a class—these are called fields.
+-Variables in a method or block of code—these are called local variables.
+-Variables in method declarations—these are called parameters.
+
+Providing Constructors for Your Classes:
+-----------------------------------------
+-A class contains constructors that are invoked to create objects from the class
+-Constructors will use the name of the class
+-Constructors have no return type
+-constructor is called by the new operator
+-if the class doesn't have any constructor then the default no argument constructor will be called if 
+  a class have super class constructor, if not it will call the default constructor from the Object class 
+-we can also define access provider for the constructor 
+-A class have more than one constructor but it should be differ with number and type of arguments passed 
+ in the constructor
+
+with the constructor we can do below 
+
+ -Declaration
+ -Instantiation
+ -Initialization 
+
+Example:
+
+Bicycle myBike = new Bicycle(30, 0, 8);
+
+new Bicycle(30, 0, 8) -->creates space in memory for the object and initializes its fields.
+
+Passing Information to a Method or a Constructor:
+---------------------------------------------------
+-Parameters refers to the list of variables in a method declaration
+-Arguments are the actual values that are passed in when the method is invoked
+-When you invoke a method, the arguments used must match the declaration's parameters in type and order
+
+Parameter Types:
+----------------
+-use any data type for a parameter of a method or a constructo
+-This includes primitive data types, such as doubles, floats, and integers
+-And also reference data types, such as objects and arrays
+
+Example: method which accepts array as an argument
+....................................................
+public void getCustomerName(int[] names)
+{
+  //logics to getCustomerName
+}
+......................................................
+
+More on Classes:
+================================================================
+From Class we can do the below 
+
+-Returning values from methods
+-The this keyword
+-Class vs. instance members
+-Access control
+
+covariant return type  -  dig more into it 
+
+
+
+Using the this keyword:
+
+-‘this’ is a reference variable that refers to the current object..
+
+-The most common use of the this keyword is to eliminate the confusion 
+  between class attributes and parameters with the same name
+  
+-because a class attribute is shadowed by a method or constructor parameter
+
+this keyword can also be used to:
+
+-Using ‘this’ keyword to refer current class instance variables:
+------------------------------------------------------------------
+   Camera(int a, int b)
+   {
+      this.a = a;
+	  this.b=b;
+   }
+   
+-Using this() to invoke current class constructor
+--------------------------------------------------
+  Camera()
+  {
+    this(10,20);
+  }
+  Camera(int a, int b)
+   {
+      this.a = a;
+	  this.b=b;
+   }
+   
+   
+-Using ‘this’ keyword to return the current class instance
+-----------------------------------------------------------
+   Camera getData()
+   {
+     
+	 return this;
+   }
+   void display()
+   {
+     sop(a +""+b);
+   }
+    //some code here....
+	
+	Camera c = new Camera()
+	c.getData().display();
+  
+   
+-Using ‘this’ keyword as method parameter 
+---------------------------------------------
+  void getData()
+  {
+    display(this);
+  }
+  void display(Camera c)
+  {
+    //some code here...
+  }
+   
+
+-Using ‘this’ keyword to invoke current class method
+-----------------------------------------------------
+  void getData()
+  {
+    this.show();
+  }
+  void show()
+  {
+    //some code here.... 
+  }
+  
+
+-Using ‘this’ keyword as an argument in the constructor call
+-------------------------------------------------------------
+ 
+ if there is two class, then we can use this work to call each other 
+    Camera a = new Camera(this);
+
+
+=============================================================================================
+
+Controlling Access to Members of a Class
+-public
+-protected
+-no modifier
+-private
+
+
+Static in java:
+
+Static variable:
+
+ - static variable also called as class variable
+ - static variable get memory only once in the class area at the time of class loading 
+ 
+ - if the filed(instace variable) is non static, then each time when we creae a object, it 
+    holds it own copy of the instance variable. 
+
+ - if the object need to hold the same value, then we need to declare the filed as static 
+
+
+static method:
+
+ - static method belongs to the class method instead of the object of the class
+ - static method can be invoked without the need for creating an instace of a class
+ - static method can access the static data member and can change the value of it 
+ 
+ -You specify a class variable or a class method by using the static keyword in the member's declaration
+ - A member that is not declared as static is implicitly an instance member
+
+Restricions in static method:
+- static method can not use the non satatic data memeber or call non-static method directly 
+- this and super keyword cannot be used in static 
+- Class variables are shared by all instances of a class and can be accessed through the class name  
+
+Example:
+
+To declare the static fileds
+
+ static int noOfCameras;
+ 
+ static method"
+ 
+ public static int  getNoOfCameras()
+  {
+     return noOfCameras;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

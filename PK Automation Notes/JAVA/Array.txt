@@ -1,0 +1,52 @@
+Array Examples:
+https://www.studytonight.com/java-programs/java-program-to-create-a-jagged-array-that-contains-two-arrays
+
+Arrays
+
+--An array is a container object that holds a fixed number of values of a single type
+--The length of an array is established when the array is created. After creation, its length is fixed
+
+you can declare arrays of other types:
+
+byte[] anArrayOfBytes;
+short[] anArrayOfShorts;
+long[] anArrayOfLongs;
+float[] anArrayOfFloats;
+double[] anArrayOfDoubles;
+boolean[] anArrayOfBooleans;
+char[] anArrayOfChars;
+String[] anArrayOfStrings;
+
+You can also place the brackets after the array's name:
+
+// this form is discouraged
+float anArrayOfFloats[];
+
+
+-methods availabe when using the array 
+-how to use the arrays with different types of data type
+-how to get,sum and print the data
+-how to retrive the data in the array 
+-how to return the array from method
+-how to conver the array's data from one type to another 
+-how to reverse the data
+-how to sort the array
+-find the duplicate elements and its count  in array
+-
+ 
+-methods availabe when using the array 
+=======================================		
+ Methods:
+  -toString()
+  -lenght
+
+
+
+
+
+
+
+
+
+
+

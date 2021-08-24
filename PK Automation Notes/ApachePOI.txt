@@ -1,0 +1,36 @@
+Apache POI:
+
+-Apache POI is used to read and write excel and word files
+
+Apache POI having four interfaces and classes to read the excel file 
+
+xls Classes		Interface   xlsx Classes
+----------------------------------------
+HSSFWorkbook    workbook   XSSFWorkBook
+HSSFSheet		sheet      XSSFSheet
+HSSFRow		    Row		   XSSFRow
+HSSFCell	    Cell       XSSFCell
+			  
+Reading the Excel data:
+
+-First get the total number of rows 
+-And also get the total number of columns
+-Then we need to use two for loops to iterate the rows and columns
+-Then in the outer loop we need to iterate the rows 
+-Then in the inner loop we need to iterate the columns(cells) from the selected row
+-Then we need to check the type of data from the excel file 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

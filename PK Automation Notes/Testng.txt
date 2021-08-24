@@ -1,0 +1,506 @@
+TestNG:  -- Test Next Generation framework
+ 
+  TestNg is testing framework designed to simplify a broad range of testing needs,from unit testing to integration testing
+
+TestNG -- also called TDD 
+
+========================================================
+TestNG is used to design test cases in a systematic way
+=======================================================
+
+--HTML Reports
+--Different Annotations
+--Priorities/sequence
+--dependency
+--grouping
+--data provider
+--Parelle test execution 
+--Parameterized Tests
+--Test order
+--TestNg Listeners -- To create the custom reports and logs 
+--Assertions in TestNg
+--Reports 
+
+=============================================Recall all the annotations and methods used in TestNG====================================================================
+Annotations in TestNg:
+
+-@BeforeSuite
+-@BeforeClass
+-@BeforeMethod
+-@BeforeTest
+-@Test
+-@AfterMethod
+-@AfterClass
+-@AfterTest
+
+TestNg Features:
+================
+@Test(enabled=true),@Test(enabled=false)
+@Test(priority = 1)
+@Test(groups="smoke testing")
+@Test(dependsOnMethods={"login"})
+
+@Test(invocationCount=10,invocationTimeOut=1)
+@Test(timeOut=2000) 
+@Test(expectedExceptions = NumberFormatException.class)
+
+Passing data from the TestNg File:
+----------------------------------
+@Parameters({"username","password"})
+
+Passing data to the test case from utility(excel):
+---------------------------------------------------
+@Test(dataprovider="getData")
+
+Retry Login in TestNg:
+----------------------
+@Test(retryAnalyzer = com.selenium.testngRetryLogic.RetryAnalyzerTestng.class) 
+
+Listener in testNg 
+-------------------
+@Listeners(CustomListener.class)
+
+interface in testng:
+-----------------------
+  Interface: 
+    - IRetryAnalyzer
+	- IAnnotationTransformer
+	- ITestListener
+	
+Interface and the Methods used:
+-------------------------------	
+Retry logic:
+ - public boolean retry(ITestResult result) method  from "IRetryAnalyzer" interface
+ - public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) 
+        method  from "IAnnotationTransformer"
+
+Taking Screenshot for failed test case:
+ - public void onTestFailure(ITestResult result) method from "ITestListener"
+
+
+===================================================End- of- Recall===========================================================
+
+Annotations in TestNG with Example and Explanation:
+======================
+
+Pre-Conditions in TestNg Annotations
+
+-@BeforeSuite
+-@BeforeClass
+-@BeforeMethod
+-@BeforeTest
+
+Test Case Annotation  in TestNg:
+-------------------------------
+
+-@Test
+
+Post-Conditions in TestNg Annotations:
+-------------------------------------
+
+-@AfterMethod
+-@AfterClass
+-@AfterTest
+ 
+TestNg Sequence:
+----------------
+For the each test case in testng, the sequence will be created like below 
+
+@BeforeMethod
+@Test -1
+@AfterMethod
+
+
+@BeforeMethod
+@Test -2
+@AfterMethod
+
+The below annotation will be executed only once:
+
+-@BeforeSuite
+-@BeforeTest
+-@BeforeClass
+	
+
+--Testng will execute the test cases randomly 
+
+==============================================================================================
+TestNg Features:
+================
+@Test(enabled=true) -- we can enable and disable the test case using testNg
+@Test(enabled=false) 
+
+@Test(priority = 1) --use the priority parameter to run the test case in sequence order(priority)
+@Test(groups="smoke testing") --use groups categorize the test case based on group(some,regression) 
+
+  Example: @Test(groups="smoke testing")
+           @Test(groups="Regression testing")
+		   
+		   @Test(groups="Accounts")
+           @Test(groups="Fund transfer")
+
+@Test(dependsOnMethods={"login"}) -- It depends on the method is failed then other test case will be skipped 
+//check few more example for this annotation
+
+
+The below 3 annotations are rarely used in selenium:
+--------------------------------------------------
+@Test(invocationCount=10,invocationTimeOut=1) -- to run the test case multiple times and the invocationTimeOut is the wait time to execute the method multiple times  
+@Test(timeOut=2000) -- It will wait for the method to execute within the mentioned time(timeOut=2000)
+@Test(expectedExceptions = NumberFormatException.class) -- when we are expecting the exceptions, we can use the attribute expectedExceptions
+
+
+Run all the  test cases at once using testng.xml as below:
+----------------------------------------------------------
+
+<suite name="SeleniumTest">
+
+  <test  name="AutomationTest">
+    <classes>
+      <class name="packagename.classname"/>
+      <class name="packagename.classname"/>
+    </classes>
+  </test>  
+  
+</suite> 
+
+
+-Suppose if we want to enable/disable the test case, then we can handle this from testng.xml  as below 
+-we can also use the below approach instead of using @Test(enabled=false)
+
+<suite name="SeleniumTest">
+
+  <test  name="AutomationTest">
+    <classes>
+	
+      <class name="packagename.classname">
+	  
+	    <methods>
+		  <include name="loginPageTest"	 />
+		  <include name="homePageTest" />
+		  <exclude name ="productPageTest" />
+		</methods>
+		
+	  </class>
+		
+    </classes>
+  </test>  
+  
+</suite> 
+
+
+================================================================
+Parameter passing using testNg.xml using @Parameters annotation: 
+================================================================
+It mostly used for environment configuration
+
+ -How to pass parameter from testng.xml to testcases
+ -what is @parameter annotation in testNg
+ -How to configure testing.xml file with <parameters> tag
+ -Run your test case with testing.xml file
+
+we have to define the parameter value in the testNg.xml file as below:
+----------------------------------------------------------------------
+<suite name="testng-parameterTest">
+ 
+ <!-- parameter in testng are mostly used for environment configuration -->
+
+     <parameter name="username" value="Admin"/>
+     <parameter name="password" value="admin123"/>
+     
+  <test  name="orangehrmlive">
+    <classes>
+      <class name="com.selenium.testng.passingparameter.PassingParameterUsingTestng"/>
+    </classes>
+  </test>  
+  
+</suite> 
+
+Then we have to use the @parameter annotation in the test class as belwo
+
+@Test
+@Parameters({"username","password"})
+public void Test(String username,String password)
+{
+driver.findElement(By.xpath("//input[@name='txtUsername']")).sendKeys(username);
+driver.findElement(By.xpath("//input[@name='txtPassword']")).sendKeys(password);
+}
+
+=======================================================================================
+Data Provider in TestNg:
+=======================================================================================
+@Test(dataprovider="getData") -- dataprovider attribute is used to pass the data to the test case
+
+@DataProvider  --  using the DataProvider annonation, we need to get the data from the excel file.
+                   So, to pass the data to test case, we need to use attribute as @Test(dataprovider="getData")
+				   
+public void getTestData()
+{
+  //code to get the data from excel file 
+}
+
+=========================================================================================
+Retry Logic in TestNg:
+-----------------------
+
+-we can immplement the retry logic in the @Test level and at Run time
+-Immplement the retry logic using the IRetryAnalayzer interface in Testng Listener
+
+Steps to immplement the retry logic:
+--------------------------------------
+ 1.Write the retry logic in one class using the retry method in the "IRetryAnalyzer" interface 
+ 2.Then we have to immplement one more method "transform" from the "IAnnotationTransformer" interface
+ 3.Then we have to add the listeners tag in the testng xml file 
+
+ 
+-suppose if the test case is failed and if we need to rerun the failed test case then we can use the retryAnalyzer attribute 
+in the test level like below
+
+
+		   
+@Test(retryAnalyzer = com.selenium.testngRetryLogic.RetryAnalyzerTestng.class)
+public void test1()
+{
+ Assert.assertEquals(false, true);
+}
+
+-Then if we need to use the retry logic for multiple test case then we need to use the "IAnnotationTransformer" interface like below
+
+Code Block:
+..........................................................................................................................
+public class MyTransform implements IAnnotationTransformer {
+
+    //overridden method from IAnnotationTransformer interface
+	public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod)
+	{
+		annotation.setRetryAnalyzer(RetryAnalyzerCondition.class);
+	}	
+}
+..........................................................................................................................
+
+Then we need to write the retry logic using the "retry" method from the "IRetryAnalyzer" interface to run the test case multiple times like below
+
+Code Block:
+........................................................................
+public class RetryAnalyzerCondition  implements IRetryAnalyzer
+  {
+
+	//RetryAnalyzer implemented in the class RetyAnalyzerTest.class
+	
+	int counter =0;
+	int retryLimit =3;
+
+	public boolean retry(ITestResult result) 
+	{ 
+		if(counter < retryLimit)
+		{
+			counter++;
+			return true;
+		}
+		else
+			
+		return false;
+	}
+............................................................................
+-Then we need to run the retry logic from testng and also have to add the listener in testng file  file like below
+-The retry condition should be mentioned in the transfer method in IAnnotationTransformer class
+
+<suite name="RetryLogicTest">
+
+<listeners>
+  <listener class-name="com.selenium.testngRetryLogic.MyTransform" />
+</listeners>
+
+  <test  name="RetryLogicTest">
+    <classes>
+      <class name="com.selenium.testngRetryLogic.RetyAnalyzerTest"/>
+    </classes>
+  </test> 
+</suite> 
+..............................................................................
+
+Assertions in TestNg:
+======================
+Hard Assertions --if any validations failed, then the remaning lines of code would not be executed
+Soft Assertions --if any validations failed, then the remaning lines of code would be executed
+
+Hard Assertions:
+----------------
+No need to create any object, we can use asseration like belo 
+
+Assert.assertEquals(true, false);
+
+But, if we have 10 tests then, then if anyone validations is failed then no need to stop all other test execution
+To solve that we can use soft assertion
+
+Soft Assertions:
+----------------
+--To use soft asseration we need to create object for the soft asseration as below
+
+ SoftAssert sa = new SoftAssert(); --we can use that object reference in our test for validations
+
+--It will execute all test case and mark it as pass eventhough if the test case if failed, to overcome this issue we 
+need to use the method "sf.assertAll()" after all the asserations 
+
+--If we use the same soft asseration object then it will display the same error information in the console, to overcome
+the issue we need to use seprate soft asseration object for each test cases.
+
+ Example:
+.......................................... 
+   public void test_1()
+	{
+		sf.assertEquals(true, false);
+		sf.assertAll();
+	}
+.......................................... 
+
+-when to use the soft and hard asserations, it good to use combinatio of both asserations
+scenarions when to use:
+-----------------------
+-suppose if there is any issues in the login  method, then no need to execute all the test  - use Hard asseration
+-suppose if the pagetitle validations failed then no need stop all the test - use soft asseration
+
+========================================================================================================================
+Taking Screenshot only for failed test case using TestNg:
+---------------------------------------------------------
+-we have to use the "ITestListener" to take Screenshot for failed test case
+-ITestListener interface will provide the below  methods for the test case progress
+
+   -- onTestStart(ITestResult result)
+   -- onTestSuccess(ITestResult result)
+   -- onTestFailure(ITestResult result)
+   -- onTestSkipped(ITestResult result)
+   -- onTestFailedButWithinSuccessPercentage(ITestResult result)
+   
+   -- onStart(ITestContext context) 
+   -- onFinish(ITestContext context)   
+
+- In the "onTestFailure(ITestResult result" method we need to call the method for the screenshot(failed testcase) like below
+   
+Example:
+.......................................
+public void onTestFailure(ITestResult result) {
+
+       System.out.println("Failed Test");
+       failed(result.getMethod().getMethodName());
+		
+	}
+
+Takescreenshot Method:
+....................................................................................................
+public void failed(String getMethodName) {
+		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		try {
+			File target = new File("D://Automation Jars//screenshot/"+getMethodName+"_"+".jpg");
+			FileUtils.copyFile(src, target);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+....................................................................................................
+-Then we need to to use the "@Listeners" in the test call to listen the listeners(onTestFailure listener method)
+
+Example:
+................................................................................
+
+@Listeners(CustomListener.class)
+public class FaileTestCaseScreenshotTest extends Base{
+	
+	@BeforeMethod
+	public void setUp()
+	{
+		initialization(); //to initilize the browser
+	}
+
+	
+	@Test
+	public void loginPageTest()
+	{
+		Assert.assertEquals(true, false);
+	
+	}
+}
+......................................................................................
+
+
+Verbose in TestNg xml file:
+=============================
+-Verbose is the parameter of suite tag and it give more info about the test case excution
+-we can use the value of verbose from 1 to 5 (Example: verbose="5")
+
+............................................................................................
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="RetryLogicTest" verbose="5">
+
+<listeners>
+  <listener class-name="com.selenium.testngRetryLogic.MyTransform" />
+</listeners>
+
+  <test  name="RetryLogicTest">
+  
+    <classes>
+    
+      <class name="com.selenium.testngRetryLogic.RetyAnalyzerTest"/>
+      
+    </classes>
+    
+  </test>  
+  
+  
+</suite>  
+............................................................................................
+================================================================================================================
+
+TestNg Parellel Testing:
+
+if we use the parellel attribute in the testng xml file, then we can acheive the parelle execution(cross browser testing)
+
+attribute:   parellel="test"
+
+.......................................................................................................
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="RetryLogicTest" verbose="5">
+
+<listeners>
+  <listener class-name="com.selenium.testngRetryLogic.MyTransform" />
+</listeners>
+
+  <test  name="RetryLogicTest">
+  
+    <classes>
+    
+      <class name="com.selenium.testngRetryLogic.RetyAnalyzerTest"/>
+      
+    </classes>
+    
+  </test>  
+  
+</suite> 
+...............................................................................................
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
